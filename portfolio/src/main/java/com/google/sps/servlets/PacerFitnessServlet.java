@@ -1,6 +1,8 @@
 package com.google.sps.servlets;
 
+import com.google.gson.Gson;
 import java.io.IOException;
+import java.util.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +12,18 @@ import javax.servlet.http.HttpServletResponse;
 public class PacerFitnessServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.setContentType("text/html;");
-    response.getWriter().println("The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal. [beep] A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.");
+    response.setContentType("application/json;");
+
+    List<String> arr = new ArrayList<>();
+    arr.add("My favorite show is Castlevania");
+    arr.add("Coding is always a good time");
+    arr.add("One time I got McDonalds and there was hair in the sprite");
+    arr.add("I can only eat chips for about 5 seconds before I get bored of them");
+    arr.add("I've probably made about 7 youtube channels with no vides on them");
+
+    Gson gson = new Gson();
+    String json = gson.toJson(arr);
+
+    response.getWriter().println(json);
   }
 }
