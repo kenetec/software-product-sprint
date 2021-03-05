@@ -26,3 +26,9 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+
+async function getPacerText() {
+    const res = await fetch('/pacer-text');
+    const data = await res.json();
+    document.getElementById('pacer-text').innerText = data[Math.floor(Math.random() * data.length)];
+}
