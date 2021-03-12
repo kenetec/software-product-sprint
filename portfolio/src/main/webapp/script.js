@@ -32,3 +32,7 @@ async function getPacerText() {
     const data = await res.json();
     document.getElementById('pacer-text').innerText = data[Math.floor(Math.random() * data.length)];
 }
+
+// async function uploadImgForm() {
+//     const res = awai
+// }
